@@ -1,6 +1,7 @@
 package br.com.jproject.gprojectback.domain.model;
 
 
+import br.com.jproject.gprojectback.domain.enums.StatusProjeto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,7 +22,8 @@ public class Projeto {
     private UUID id;
     private String nome;
     private String descricao;
-    private String status;
+    @Enumerated(EnumType.STRING)
+    private StatusProjeto status;
 
     @ManyToOne
     @JoinColumn(name = "cliente_id", nullable = false)
